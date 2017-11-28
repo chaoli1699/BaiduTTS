@@ -1,10 +1,12 @@
-package cn.cienet.baidutts.contral;
+package cn.cienet.baiduttsandroid;
 
 import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import cn.cienet.baidutts.contral.InitConfig;
+import cn.cienet.baidutts.contral.MySyntherizer;
 
 /**
  * 在新线程中调用initTTs方法。防止UI柱塞
@@ -26,8 +28,8 @@ public class NonBlockSyntherizer extends MySyntherizer {
 
     public NonBlockSyntherizer(Context context, InitConfig initConfig, Handler mainHandler) {
         super(context, mainHandler);
-        initThread();
-        runInHandlerThread(INIT, initConfig);
+        //initThread();
+        //runInHandlerThread(INIT, initConfig);
     }
 
 
@@ -43,7 +45,6 @@ public class NonBlockSyntherizer extends MySyntherizer {
                         InitConfig config = (InitConfig) msg.obj;
                         boolean isSuccess = init(config);
                         if (isSuccess) {
-                            // speak("初始化成功");
                             sendToUiThread("NonBlockSyntherizer 初始化成功!");
                         } else {
                             sendToUiThread("合成引擎初始化失败, 请查看日志!");

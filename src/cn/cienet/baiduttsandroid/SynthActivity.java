@@ -21,7 +21,6 @@ import android.view.View;
 import android.widget.Button;
 import cn.cienet.baidutts.contral.InitConfig;
 import cn.cienet.baidutts.contral.MySyntherizer;
-import cn.cienet.baidutts.contral.NonBlockSyntherizer;
 import cn.cienet.baidutts.listener.UiMessageListener;
 import cn.cienet.baidutts.util.OfflineResource;
 import cn.cienet.ttsandroid.R;
@@ -37,11 +36,11 @@ public class SynthActivity extends BaseActivity implements View.OnClickListener 
      * 发布时请替换成自己申请的appId appKey 和 secretKey。注意如果需要离线合成功能,请在您申请的应用中填写包名。
      * 本demo的包名是com.baidu.tts.sample，定义在build.gradle中。
      */
-    protected String appId = "8535996";
+    protected String appId = "10449257";
 
-    protected String appKey = "MxPpf3nF5QX0pndKKhS7IXcB";
+    protected String appKey = "meycsk0uQRqS2FspB7Vk0DQH";
 
-    protected String secretKey = "7226e84664474aa098296da5eb2aa434";
+    protected String secretKey = "8aa381ae1eba3fc05a43d435b2f84e07";
 
     // TtsMode.MIX; 离在线融合，在线优先； TtsMode.ONLINE 纯在线； 没有纯离线
     protected TtsMode ttsMode = TtsMode.MIX;

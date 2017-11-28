@@ -14,7 +14,6 @@ import android.util.Log;
 import android.util.Pair;
 import cn.cienet.baidutts.contral.InitConfig;
 import cn.cienet.baidutts.contral.MySyntherizer;
-import cn.cienet.baidutts.contral.NonBlockSyntherizer;
 import cn.cienet.baidutts.listener.UiMessageListener;
 
 public class BaiduTTSHelper {
@@ -36,7 +35,7 @@ public class BaiduTTSHelper {
     
     private BaiduTTSHelper(){}
 
-    public BaiduTTSHelper build(){
+    public static BaiduTTSHelper build(){
     	
     	if(instance==null){
     		synchronized(BaiduTTSHelper.class){
@@ -65,7 +64,7 @@ public class BaiduTTSHelper {
         // appId appKey secretKey 网站上您申请的应用获取。注意使用离线合成功能的话，需要应用中填写您app的包名。包名在build.gradle中获取。
         InitConfig initConfig = new InitConfig(map.get("appId"), map.get("appKey"), map.get("secretKey"), ttsMode, offlineVoice, params, listener);
 
-        synthesizer = new NonBlockSyntherizer(context, initConfig, mainHandler); // 此处可以改为MySyntherizer 了解调用过程
+        synthesizer = new MySyntherizer(context, initConfig, mainHandler); // 此处可以改为MySyntherizer 了解调用过程
     }
 
     /**

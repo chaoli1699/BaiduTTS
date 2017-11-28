@@ -100,7 +100,7 @@ public class MySyntherizer implements MainHandlerConstant {
         // 初始化tts
         int result = mSpeechSynthesizer.initTts(config.getTtsMode());
         if (result != 0) {
-            sendToUiThread("【error】initTts 初始化失败 + errorCode：" + result);
+            sendToUiThread(INIT_FAIL, "【error】initTts 初始化失败 + errorCode：" + result);
             return false;
         }
         // 此时可以调用 speak和synthesize方法
